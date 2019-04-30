@@ -43,3 +43,23 @@ Print the answer as a part of a message::
 to other fixed lines in Bangalore."
 The percentage should have 2 decimal digits
 """
+
+def partA():
+    areaCodes = {}
+    for callRec in calls:
+        if callRec[0].startswith('(080)'):
+            if callRec[1].startswith('('):
+                fixLine = callRec[1][1:callRec[1].find(')')]
+                if areaCodes.get(fixLine) == None:
+                    areaCodes[fixLine] = 1
+            elif callRec[1].find(' ') == 5:
+                mobLinePrefix = callRec[1][0:4]
+                if areaCodes.get(mobLinePrefix) == None:
+                    areaCodes[mobLinePrefix] = 1
+    sortedAreaCodes = sorted(areaCodes.keys())
+    print("The numbers called by people in Bangalore have codes:")
+    for code in sortedAreaCodes:
+        print(code)
+
+partA()
+
