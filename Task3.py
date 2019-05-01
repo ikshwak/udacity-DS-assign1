@@ -45,6 +45,11 @@ The percentage should have 2 decimal digits
 """
 
 def partA():
+    try:
+        assert calls
+    except:
+        print("No call records available")
+        return
     areaCodes = {}
     for callRec in calls:
         if callRec[0].startswith('(080)'):
@@ -63,3 +68,23 @@ def partA():
 
 partA()
 
+
+def partB():
+    try:
+        assert calls
+    except:
+        print("No call records available")
+        return
+    outCalls = 0
+    outBanCalls = 0
+    for callRec in calls:
+        if callRec[0].startswith('(080)'):
+            outCalls +=1
+            if callRec[1].startswith('(080)'):
+                outBanCalls += 1
+    try:
+        print("{0:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format((outBanCalls/outCalls)*100))
+    except ZeroDivisionError:
+        print("No calls were made from fixed lines in Bangalore")
+
+partB()

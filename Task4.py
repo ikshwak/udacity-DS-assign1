@@ -25,3 +25,46 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
+def createTeleMarkDict(ncTeleDict):
+    """
+    creates a dictionary of telemarketers who send/receive texts and receive calls
+    this dictionary does not include telemarketers that make calls
+    """
+    try:
+        for callRec in calls:
+            if callRec[1].startswith('140') and ncTeleDict.get(callRec[1]) == None:
+                ncTeleDict[callRec[1]] = 1
+    except:
+        print("No call records available")
+
+    try:
+        for textRec in texts:
+            if textRec[0].startswith('140') and ncTeleDict.get(textRec[0]) == None:
+                ncTeleDict[TextRec[0]] = 1
+            if textRec[1].startswith('140') and ncTeleDict.get(textRec[1]) == None:
+                ncTeleDict[textRec[1]] = 1
+    except:
+        print("No text records available")
+
+def teleMarketers():
+    """
+    calls the createTeleMarkDict() to create the dictionary for non call making telemarketers
+    creates a dictionary of telemarketers that meets the problem criteria.
+    sorts the keys of this dictionary to display them in lexicographic order.
+    enumerates through the sorted list to print them out
+    """
+    nonCallerTeleMarkDict = {}
+    createTeleMarkDict(nonCallerTeleMarkDict)
+    teleMarketerDict = {}
+    try:
+        for callRec in calls:
+            if callRec[0].startswith('140') and nonCallerTeleMarkDict.get(callRec[0]) == None and teleMarketerDict.get(callRec[0]) == None:
+                teleMarketerDict[callRec[0]] = 1
+        teleMarketerList = sorted(teleMarketerDict.keys())
+        print("These numbers could be telemarketers: ")
+        for num in teleMarketerList:
+            print(num)
+    except:
+        print("Failed to get the telemarketer list")
+
+teleMarketers()
