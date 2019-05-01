@@ -54,24 +54,25 @@ def partA():
     """
     try:
         assert calls
+        areaCodes = {}
+        for callRec in calls:
+            if callRec[0].startswith('(080)'):
+                if callRec[1].startswith('('):
+                    fixLine = callRec[1][1:callRec[1].find(')')]
+                    if areaCodes.get(fixLine) == None:
+                        areaCodes[fixLine] = 1
+                elif callRec[1].find(' ') == 5:
+                    mobLinePrefix = callRec[1][0:4]
+                    if areaCodes.get(mobLinePrefix) == None:
+                        areaCodes[mobLinePrefix] = 1
+        sortedAreaCodes = sorted(areaCodes.keys())
+        print("The numbers called by people in Bangalore have codes:")
+        for code in sortedAreaCodes:
+            print(code)
+    except AssertError:
+        print("no records in calls.csv")
     except:
-        print("No call records available")
-        return
-    areaCodes = {}
-    for callRec in calls:
-        if callRec[0].startswith('(080)'):
-            if callRec[1].startswith('('):
-                fixLine = callRec[1][1:callRec[1].find(')')]
-                if areaCodes.get(fixLine) == None:
-                    areaCodes[fixLine] = 1
-            elif callRec[1].find(' ') == 5:
-                mobLinePrefix = callRec[1][0:4]
-                if areaCodes.get(mobLinePrefix) == None:
-                    areaCodes[mobLinePrefix] = 1
-    sortedAreaCodes = sorted(areaCodes.keys())
-    print("The numbers called by people in Bangalore have codes:")
-    for code in sortedAreaCodes:
-        print(code)
+        print("other exception")
 
 partA()
 
@@ -84,21 +85,21 @@ def partB():
     maintains a count of those number as well.
     the percentage is calculated using these counters.
     """
-    try:
+    try:    
         assert calls
-    except:
-        print("No call records available")
-        return
-    outCalls = 0
-    outBanCalls = 0
-    for callRec in calls:
-        if callRec[0].startswith('(080)'):
-            outCalls +=1
-            if callRec[1].startswith('(080)'):
-                outBanCalls += 1
-    try:
+        outCalls = 0
+        outBanCalls = 0
+        for callRec in calls:
+            if callRec[0].startswith('(080)'):
+                outCalls +=1
+                if callRec[1].startswith('(080)'):
+                    outBanCalls += 1
         print("{0:.2f} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.".format((outBanCalls/outCalls)*100))
     except ZeroDivisionError:
         print("No calls were made from fixed lines in Bangalore")
+    except AssertError:
+        print("no records in calls.csv")
+    except:
+        print("other exception")
 
 partB()

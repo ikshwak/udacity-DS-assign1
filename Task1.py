@@ -23,9 +23,9 @@ def getNumbersFromTextRecords(uniqueNumber):
     try:
         assert texts
         for rec in texts:
-            if rec[0] not in uniqueNumber:
+            if  uniqueNumber.get(rec[0]) == None:
                 uniqueNumber[rec[0]] = True
-            if rec[1] not in uniqueNumber:
+            if  uniqueNumber.get(rec[1]) == None:
                 uniqueNumber[rec[1]] = True
     except AssertError:
         print("no records in texts.csv")
@@ -36,9 +36,9 @@ def getNumbersFromCallsRecords(uniqueNumber):
     try:
         assert calls
         for rec in calls:
-            if rec[0] not in uniqueNumber:
+            if  uniqueNumber.get(rec[0]) == None:
                 uniqueNumber[rec[0]] = True
-            if rec[1] not in uniqueNumber:
+            if uniqueNumber.get(rec[1]) == None:
                 uniqueNumber[rec[1]] = True
     except AssertError:
         print("no records in calls.csv")

@@ -34,6 +34,11 @@ def getMaxTimeRec():
     try:
         assert calls
         for rec in calls:
+            """
+            although it looks like a nested loop this inner loop is to
+            loop through different indices of the same record. it avoids
+            extra lines of code.
+            """
             for idx in range(2):
                 time = timeSpent.get(rec[idx])
                 if time == None:
