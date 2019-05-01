@@ -45,6 +45,13 @@ The percentage should have 2 decimal digits
 """
 
 def partA():
+    """
+    1. Iterates through the list of call records and checks for fixed line numbers starting
+    with (080) from the caller list and creates a dictionary of codes of fixed lines and
+    mobile numbers. (the fixed line codes and mobile number codes are parsed as per the spec)
+    2. After iterating the records the dictionary key are sorted in lexicographic order. This
+    list is enumerated to print the output
+    """
     try:
         assert calls
     except:
@@ -70,6 +77,13 @@ partA()
 
 
 def partB():
+    """
+    Iteraters the call records and checks for all the caller numbers starting with (080)
+    maintains a count of all outgoing calls from those numbers.
+    within that same iteration also checks if the receiver number also starts with (080)
+    maintains a count of those number as well.
+    the percentage is calculated using these counters.
+    """
     try:
         assert calls
     except:

@@ -30,7 +30,7 @@ def getNumbersFromTextRecords(uniqueNumber):
     except AssertError:
         print("no records in texts.csv")
     except IndexError:
-        print("no telephone number in text record")
+        print("Invalid text record")
 
 def getNumbersFromCallsRecords(uniqueNumber):
     try:
@@ -43,7 +43,7 @@ def getNumbersFromCallsRecords(uniqueNumber):
     except AssertError:
         print("no records in calls.csv")
     except IndexError:
-        print("no telephone number in calls record")
+        print("Invalid in calls record")
 
 
 def printUniqueNumberCount():

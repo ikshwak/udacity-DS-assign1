@@ -1,0 +1,67 @@
+---------------------------------------------------------------------------------------------------------------------
+                                               TASK0.py Worst Case Analysis
+---------------------------------------------------------------------------------------------------------------------
+time complexity: O(1) to retrieve the first record from the list of text records. 
+                 This is because lists can be accessed via index.
+				 
+				 O(1) to retrieve the last record from the list of call records.
+				 This is because lists can be accessed via index. although the len()
+				 function is used, the list object maintains the length as well.
+				 
+space complexity: O(1) no extra space was used to print the result.
+
+---------------------------------------------------------------------------------------------------------------------
+                                               TASK1.py Worst Case Analysis
+---------------------------------------------------------------------------------------------------------------------
+time complexity: O(n) to retrieve the records from texts/calls list and
+                 store them to a dictionary.
+				 
+space complexity: O(n) the retrieved records are stored in a dictionary to
+                  maintain a unique record list.
+
+---------------------------------------------------------------------------------------------------------------------
+                                               TASK2.py Worst Case Analysis
+---------------------------------------------------------------------------------------------------------------------
+time complexity: O(n) to retrieve the records from calls list and store them
+                 to a dictionary to maintain the count of time spent for calls
+				 by every number.
+				 
+space complexity: O(n) the retrieved records are stored in a dictionary to
+                  maintain a unique record list + the total time spent for calls.
+
+---------------------------------------------------------------------------------------------------------------------
+                                               TASK3.py Worst Case Analysis
+---------------------------------------------------------------------------------------------------------------------
+PART A:
+-------
+time complexity: O(n) to retrieve the records from calls list and store them
+                 to a dictionary to maintain list of unique phone number codes.
+
+				 O(n log n) for sorting the keys of the dictionary, this is done to
+				 display the codes in lexicographic order.
+
+space complexity: O(n) the retrieved records are stored in a dictionary to
+                  maintain a unique codes list.
+				  
+				  O(n) the sorted dictionary keys are stored in a list to enumerate
+				  and print the output.
+				  
+PART B:
+--------
+time complexity: O(n) to retrieve the records from calls list to look for fixed lines
+                 starting with (080) - Both caller and reciever.
+
+space complexity: O(1) No extra space was used to solve the problem criteria.
+
+---------------------------------------------------------------------------------------------------------------------
+                                               TASK4.py Worst Case Analysis
+---------------------------------------------------------------------------------------------------------------------
+time complexity: O(2n) ~ O(n) first iteration to retrieve the records from calls and 
+                 text list and store the non caller telemarketers numbers to a dictionary.
+				 Second iteration to check the calls list for caller telemarketers.
+
+				 O(n log n) for sorting the keys of the dictionary, this is done to
+				 display the telemarketers in lexicographic order.
+
+space complexity: O(n) the retrieved records are stored in a dictionary to maintain
+                  a unique record list of non-caller telemarketers and caller telemarketers.
