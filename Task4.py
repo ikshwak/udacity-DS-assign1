@@ -32,16 +32,16 @@ def createTeleMarkDict(ncTeleDict):
     """
     try:
         for callRec in calls:
-            if callRec[1].startswith('140') and ncTeleDict.get(callRec[1]) == None:
+            if ncTeleDict.get(callRec[1]) == None:
                 ncTeleDict[callRec[1]] = 1
     except:
         print("No call records available")
 
     try:
         for textRec in texts:
-            if textRec[0].startswith('140') and ncTeleDict.get(textRec[0]) == None:
-                ncTeleDict[TextRec[0]] = 1
-            if textRec[1].startswith('140') and ncTeleDict.get(textRec[1]) == None:
+            if ncTeleDict.get(textRec[0]) == None:
+                ncTeleDict[textRec[0]] = 1
+            if ncTeleDict.get(textRec[1]) == None:
                 ncTeleDict[textRec[1]] = 1
     except:
         print("No text records available")
@@ -58,7 +58,7 @@ def teleMarketers():
     teleMarketerDict = {}
     try:
         for callRec in calls:
-            if callRec[0].startswith('140') and nonCallerTeleMarkDict.get(callRec[0]) == None and teleMarketerDict.get(callRec[0]) == None:
+            if nonCallerTeleMarkDict.get(callRec[0]) == None and teleMarketerDict.get(callRec[0]) == None:
                 teleMarketerDict[callRec[0]] = 1
         teleMarketerList = sorted(teleMarketerDict.keys())
         print("These numbers could be telemarketers: ")

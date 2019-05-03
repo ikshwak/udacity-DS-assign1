@@ -34,7 +34,7 @@ space complexity: O(n) the retrieved records are stored in a dictionary to
 ---------------------------------------------------------------------------------------------------------------------
 PART A:
 -------
-time complexity: O(n) +  O(n log n)
+time complexity: O(n log n)
                  O(n) to retrieve the records from calls list and store them
                  to a dictionary to maintain list of unique phone number codes.
 
@@ -58,7 +58,7 @@ space complexity: O(1) No extra space was used to solve the problem criteria.
 ---------------------------------------------------------------------------------------------------------------------
                                                TASK4.py Worst Case Analysis
 ---------------------------------------------------------------------------------------------------------------------
-time complexity: O(2n) ~ O(n) + O(n log n)
+time complexity: O(n log n)
                  O(2n) ~ O(n) first iteration to retrieve the records from calls and 
                  text list and store the non caller telemarketers numbers to a dictionary.
 				 Second iteration to check the calls list for caller telemarketers.
